@@ -1,0 +1,12 @@
+/*! 版权所有，翻版必究 */
+#lessBox {
+  width: 300px;
+  height: 200px;
+  background: yellowgreen;
+  -webkit-transform: rotateX(30deg);
+          transform: rotateX(30deg);
+}
+#nav {
+  width: 50%;
+  height: 40px;
+  background-color: #FFF; }
