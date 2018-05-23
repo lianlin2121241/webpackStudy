@@ -1,0 +1,116 @@
+//变量
+$hight-color:#F90;
+.selected{
+  border:1px solid $hight-color
+}
+
+//嵌套
+#content{
+  background-color: #555;
+  article{
+    h1{
+      color: #333;
+    }
+    p{
+      margin-bottom:1.4em
+    }
+  }
+  aside{
+    background-color: #eee;
+  }
+}
+
+//父选择器的标识符&
+article a{
+  color:blue;
+  &:hover{
+    color:red;
+  }
+  body.ie &{
+    color:green;
+  }
+}
+
+//群组选择器嵌套
+.container{
+  h1,h2,h3{
+    margin-bottom: .8em;
+  }
+}
+nav,aside{
+  a{
+    color: blue;
+  }
+}
+
+//子组合选择器和同层组合选择器
+article{
+  ~ article{
+    border-top: 1px dashed #ccc;
+  }
+  > section{
+    background: #eee;
+  }
+  dl >{
+    dt{
+      color: #333;
+    }
+    dd{
+      color:#555;
+    }
+  }
+  nav + &{
+    margin-top: 0;
+  }
+}
+
+//嵌套属性
+nav{
+  border: {
+    style:solid;
+    width:1px;
+    color:#ccc;
+  }
+}
+nav{
+  border: 1px solid #ccc {
+    left:0px;
+    right:0px;
+  }
+}
+
+//导入SASS文件
+@import "exerciseImport";
+
+//嵌套导入SASS文件
+.wrap-nav {
+  @import "exerciseImport";
+}
+
+//混合器
+//被用于有很多重复的样式时，提取公共的样式，用以共享，然后通过include导入该混合器
+//使用原则
+//1、能够为该组合取一个合理的名称（文字过多...）
+//2、混合器还可以包含css规则
+@mixin rounded-corners{
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+@mixin no-bullets{
+  list-style:none;
+  li{
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+  }
+}
+notice{
+  background-color: green;
+  border:2px solid #000;
+  @include rounded-corners;
+}
+ul.plain{
+  color:#444;
+  @include no-bullets;
+}

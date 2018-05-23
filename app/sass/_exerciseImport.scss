@@ -1,0 +1,6 @@
+//默认变量值
+//如果导入此文件的sass文件定义了变量就用定义的，否则使用此默认变量
+$fancybox-width:400px !default;
+.fancybox{
+    width: $fancybox-width;
+}
