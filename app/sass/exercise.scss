@@ -105,6 +105,16 @@ nav{
     margin-left: 0px;
   }
 }
+//可以传参数，并可以通过冒号设置默认值
+@mixin link-colors($normal,$hover:$normal,$visited:$normal){
+  color:$normal;
+  &:hover{
+    color: $hover;
+  }
+  &:visited{
+    color:$visited;
+  }
+}
 notice{
   background-color: green;
   border:2px solid #000;
@@ -113,4 +123,58 @@ notice{
 ul.plain{
   color:#444;
   @include no-bullets;
+}
+a{
+  @include link-colors(blue, red, green);
+}
+//可以通过键值对方式调用
+a{
+  @include link-colors(
+    $normal:blue,
+    $visited:green,
+    $hover:red
+  )
+}
+a{
+  @include link-colors(red)
+}
+
+//继承
+//使用继承比使用混合器生成的代码更少，因为继承是重复选择器，而不是属性
+.error{
+  border:1px red;
+  background-color: #fdd;
+}
+.error a{
+  color:red;
+  font-weight: 100;
+}
+input.error[type="text"]{
+  border-color:red;
+}
+h1.error{
+  font-size: 1.3rem;
+}
+.important.error{
+  color:green;
+}
+.seriousError{
+  @extend .error;
+  border-width: 3px;
+}
+.disabled{
+  color:gray;
+  @extend a;
+}
+.importantError{
+  text-align: left;
+  @extend .important.error;
+}
+
+//不要在css规则中使用后代选择器
+.foo .bar{
+  @extend .baz;
+}
+.bip .baz{
+  font-family: 'Courier New', Courier, monospace
 }

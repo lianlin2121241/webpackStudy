@@ -22,17 +22,17 @@
   #content aside {
     background-color: #eee; }
 
-article a {
+article a, article .disabled {
   color: blue; }
-  article a:hover {
+  article a:hover, article .disabled:hover {
     color: red; }
-  body.ie article a {
+  body.ie article a, body.ie article .disabled {
     color: green; }
 
 .container h1, .container h2, .container h3 {
   margin-bottom: .8em; }
 
-nav a, aside a {
+nav a, nav .disabled, aside a, aside .disabled {
   color: blue; }
 
 article ~ article {
@@ -78,3 +78,53 @@ ul.plain {
     list-style-image: none;
     list-style-type: none;
     margin-left: 0px; }
+
+a, .disabled {
+  color: blue; }
+  a:hover, .disabled:hover {
+    color: red; }
+  a:visited, .disabled:visited {
+    color: green; }
+
+a, .disabled {
+  color: blue; }
+  a:hover, .disabled:hover {
+    color: red; }
+  a:visited, .disabled:visited {
+    color: green; }
+
+a, .disabled {
+  color: red; }
+  a:hover, .disabled:hover {
+    color: red; }
+  a:visited, .disabled:visited {
+    color: red; }
+
+.error, .seriousError {
+  border: 1px red;
+  background-color: #fdd; }
+
+.error a, .seriousError a, .error .disabled, .seriousError .disabled {
+  color: red;
+  font-weight: 100; }
+
+input.error[type="text"], input.seriousError[type="text"] {
+  border-color: red; }
+
+h1.error, h1.seriousError {
+  font-size: 1.3rem; }
+
+.important.error, .important.seriousError, .importantError {
+  color: green; }
+
+.seriousError {
+  border-width: 3px; }
+
+.disabled {
+  color: gray; }
+
+.importantError {
+  text-align: left; }
+
+.bip .baz, .bip .foo .bar, .foo .bip .bar {
+  font-family: 'Courier New', Courier, monospace; }
